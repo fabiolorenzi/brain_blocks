@@ -10,28 +10,28 @@
 		},
 		{
 			"type": "shell",
-			"label": "Dev build",
+			"label": "Build Dev",
 			"command": "cmake --build build --config Debug",
 			"group": "build",
 			"detail": "CMake dev build"
 		},
 		{
 			"type": "shell",
-			"label": "Release build",
+			"label": "Build Release",
 			"command": "cmake --build build --config Release",
 			"group": "build",
 			"detail": "CMake release build"
 		},
 		{
 			"type": "shell",
-			"label": "Run dev",
+			"label": "Run Dev",
 			"command": "./build/bin/Debug/brain_blocks.exe",
 			"group": "build",
 			"detail": "Run dev build"
 		},
 		{
 			"type": "shell",
-			"label": "Run release",
+			"label": "Run Release",
 			"command": "./build/bin/Release/brain_blocks.exe",
 			"group": "build",
 			"detail": "Run release build"
