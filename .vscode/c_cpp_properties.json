@@ -4,6 +4,8 @@
             "name": "Win32",
             "includePath": [
                 "${workspaceFolder}/**",
+                "${workspaceFolder}/src/**",
+                "${workspaceFolder}/src/classes/**",
                 "${workspaceFolder}/build/_deps/sdl2-src/include",
                 "${workspaceFolder}/build/_deps/sdl_image-src",
                 "${workspaceFolder}/build/_deps/imgui-src",
@@ -14,8 +16,8 @@
                 "UNICODE",
                 "_UNICODE"
             ],
-            "cStandard": "c17",
-            "cppStandard": "gnu++17",
+            "cStandard": "c23",
+            "cppStandard": "gnu++23",
             "intelliSenseMode": "windows-gcc-x64"
         }
     ],
