@@ -7,11 +7,13 @@ target_sources(${PROJECT_NAME}
     PRIVATE
         main.cpp
         classes/Window.cpp
+        functions/KeysManager.cpp
 )
 
 target_include_directories(${PROJECT_NAME}
     PRIVATE
         classes
+        functions
 )
 
 target_link_libraries(${PROJECT_NAME}

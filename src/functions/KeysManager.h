@@ -1,0 +1,13 @@
+#pragma once
+
+#include <SDL.h>
+
+enum KeyCodes {
+    KEY_PRESS_SURFACE_DEFAULT,
+	KEY_PRESS_SURFACE_UP,
+	KEY_PRESS_SURFACE_DOWN,
+	KEY_PRESS_SURFACE_LEFT,
+	KEY_PRESS_SURFACE_RIGHT
+};
+
+int KeyDownManager(SDL_Event e);

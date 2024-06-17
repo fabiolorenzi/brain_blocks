@@ -45,15 +45,14 @@ int Window::Init()
 	return 0;
 }
 
-int Window::LoadMedia()
+int Window::LoadMedia(std::string image)
 {
-    gHelloWorld = SDL_LoadBMP("assets/images/test.bmp");
+    gHelloWorld = SDL_LoadBMP(image.c_str());
 	if (gHelloWorld == NULL) {
-		printf( "Unable to load image %s! SDL Error: %s\n", "assets/images/test.bmp", SDL_GetError());
+		printf( "Unable to load image %s! SDL Error: %s\n", image, SDL_GetError());
 		return -1;
 	}
 	SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
 	SDL_UpdateWindowSurface(gWindow);
-	SDL_Delay(10000);
     return 0;
 }
