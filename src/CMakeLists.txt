@@ -14,12 +14,13 @@ target_include_directories(${PROJECT_NAME}
 )
 
 target_link_libraries(${PROJECT_NAME}
-    PUBLIC SDL2-static
-    ${OPENGL_gl_LIBRARY}
-    ${CMAKE_DL_LIBS}
-    SDL2_image
-    IMGUI
-    glew
+    PUBLIC
+        SDL2-static
+        ${OPENGL_gl_LIBRARY}
+        ${CMAKE_DL_LIBS}
+        SDL2_image
+        IMGUI
+        glew
 )
 
 set_target_properties(${PROJECT_NAME} PROPERTIES OUTPUT_NAME "brain_blocks")

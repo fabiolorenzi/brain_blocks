@@ -10,20 +10,6 @@
 #include "imgui_impl_sdl.h"
 #include "imgui_impl_sdlrenderer.h"
 
-#ifdef __EMSCRIPTEN__
-#include <emscripten.h>
-#endif
-
-#ifdef __EMSCRIPTEN__
-EM_JS(int, canvas_get_width, (), {
-return canvas.width;
-});
-
-EM_JS(int, canvas_get_height, (), {
-return canvas.height;
-});
-#endif
-
 int main(int argc, char* argv[]) {
     // Unused argc, argv
     (void) argc;
@@ -36,10 +22,6 @@ int main(int argc, char* argv[]) {
 
     auto width = 1280;
     auto height = 720;
-#ifdef __EMSCRIPTEN__
-    width = canvas_get_width();
-    height = canvas_get_height();
-#endif
 
     // Setup window
     SDL_WindowFlags window_flags = (SDL_WindowFlags) (SDL_WINDOW_RESIZABLE | SDL_WINDOW_SHOWN);
