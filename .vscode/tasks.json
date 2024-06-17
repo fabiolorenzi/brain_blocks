@@ -1,0 +1,40 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"type": "shell",
+			"label": "Install dependencies",
+			"command": "cmake -S . -B build",
+			"group": "build",
+			"detail": "CMake install dependencies"
+		},
+		{
+			"type": "shell",
+			"label": "Dev build",
+			"command": "cmake --build build --config Debug",
+			"group": "build",
+			"detail": "CMake dev build"
+		},
+		{
+			"type": "shell",
+			"label": "Release build",
+			"command": "cmake --build build --config Release",
+			"group": "build",
+			"detail": "CMake release build"
+		},
+		{
+			"type": "shell",
+			"label": "Run dev",
+			"command": "./build/bin/Debug/brain_blocks.exe",
+			"group": "build",
+			"detail": "Run dev build"
+		},
+		{
+			"type": "shell",
+			"label": "Run release",
+			"command": "./build/bin/Release/brain_blocks.exe",
+			"group": "build",
+			"detail": "Run release build"
+		}
+	]
+}
