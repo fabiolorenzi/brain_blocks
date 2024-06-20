@@ -3,11 +3,13 @@
 #include <SDL.h>
 #include <stdio.h>
 #include <iostream>
+#include "Player.h"
 #include "Renderer.h"
 
 class Window
 {
     public:
+        Player* player;
         Window();
         ~Window();
         int LoadMedia(std::string imagePath);

@@ -6,8 +6,9 @@ add_executable(BrainBlocks)
 target_sources(${PROJECT_NAME}
     PRIVATE
         main.cpp
-        classes/Window.cpp
+        classes/Player.cpp
         classes/Renderer.cpp
+        classes/Window.cpp
         functions/KeysManager.cpp
 )
 

@@ -11,6 +11,7 @@ Window::Window()
 Window::~Window()
 {
 	delete gRenderer;
+	delete player;
     SDL_FreeSurface(gStretched);
 	gStretched = NULL;
 	SDL_DestroyWindow(gWindow);
@@ -41,6 +42,7 @@ int Window::Init()
 			return -1;
 		} else {
 			gScreenSurface = SDL_GetWindowSurface(gWindow);
+			player = new Player(40, height - 50, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
 			gRenderer = new Renderer(gWindow);
 		}
 	}
@@ -101,7 +103,7 @@ SDL_Surface* Window::LoadSurface(std::string imagePath)
 void Window::RenderElements()
 {
 	gRenderer->Reset();
-	gRenderer->Draw(40, height - 50, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
+	gRenderer->Draw(player);
 
 	gRenderer->Draw(0, height - 10, width, 10, 0x8B, 0x45, 0x13, 0x00);
 
