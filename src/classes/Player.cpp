@@ -14,10 +14,6 @@ Player::Player(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint
     isMovingRight = false;
 }
 
-Player::~Player()
-{
-}
-
 void Player::SetMove(int moveIndex)
 {
     if (moveIndex == 3) {

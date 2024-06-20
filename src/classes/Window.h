@@ -5,11 +5,15 @@
 #include <iostream>
 #include "Player.h"
 #include "Renderer.h"
+#include "Wall.h"
 
 class Window
 {
     public:
         Player* player;
+        Wall* floor;
+        Wall* wallLeft;
+        Wall* wallRight;
         Window();
         ~Window();
         int LoadMedia(std::string imagePath);

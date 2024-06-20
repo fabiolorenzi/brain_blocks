@@ -46,3 +46,12 @@ void Renderer::Draw(Player* player)
     SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
     SDL_RenderDrawRect(renderer, &drawing);
 }
+
+void Renderer::Draw(Wall* wall)
+{
+    SDL_Rect drawing = {wall->x, wall->y, wall->width, wall->height};
+    SDL_SetRenderDrawColor(renderer, wall->r, wall->g, wall->b, wall->a);
+    SDL_RenderFillRect(renderer, &drawing);
+    SDL_SetRenderDrawColor(renderer, 0x00, 0x00, 0x00, 0x00);
+    SDL_RenderDrawRect(renderer, &drawing);
+}

@@ -12,6 +12,9 @@ Window::~Window()
 {
 	delete gRenderer;
 	delete player;
+	delete floor;
+	delete wallLeft;
+	delete wallRight;
     SDL_FreeSurface(gStretched);
 	gStretched = NULL;
 	SDL_DestroyWindow(gWindow);
@@ -42,7 +45,11 @@ int Window::Init()
 			return -1;
 		} else {
 			gScreenSurface = SDL_GetWindowSurface(gWindow);
-			player = new Player(40, height - 50, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
+			floor = new Wall(0, height - 10, width, 10, 0x8B, 0x45, 0x13, 0x00);
+			wallLeft = new Wall(0, 0, 10, height - 10, 0x80, 0x80, 0x80, 0x00);
+			wallRight = new Wall(width - 10, 0, 10, height - 10, 0x80, 0x80, 0x80, 0x00);
+			// player = new Player(40, height - 50, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
+			player = new Player(40, height / 2, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
 			gRenderer = new Renderer(gWindow);
 		}
 	}
@@ -105,7 +112,9 @@ void Window::RenderElements()
 	gRenderer->Reset();
 	gRenderer->Draw(player);
 
-	gRenderer->Draw(0, height - 10, width, 10, 0x8B, 0x45, 0x13, 0x00);
+	gRenderer->Draw(floor);
+	gRenderer->Draw(wallLeft);
+	gRenderer->Draw(wallRight);
 
 	SDL_RenderPresent(gRenderer->renderer);
 }
