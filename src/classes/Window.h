@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 #include "Player.h"
 #include "Renderer.h"
 #include "Wall.h"
@@ -11,9 +12,7 @@ class Window
 {
     public:
         Player* player;
-        Wall* floor;
-        Wall* wallLeft;
-        Wall* wallRight;
+        std::vector<Wall*> walls;
         Window();
         ~Window();
         int LoadMedia(std::string imagePath);

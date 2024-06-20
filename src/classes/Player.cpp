@@ -16,12 +16,16 @@ Player::Player(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint
     body = {x, y, width, height};
 }
 
-void Player::CheckCollision(Wall* wall)
+void Player::CheckWallsCollisions(std::vector<Wall*> walls)
 {
     const SDL_Rect* playerBody = &body;
-    const SDL_Rect* wallBody = wall->GetBody();
-    if (SDL_HasIntersection(playerBody, wallBody) && isMovingLeft) {
-        blockedDirection = 3;
+    for (Wall* wall : walls) {
+        const SDL_Rect* wallBody = wall->GetBody();
+        if (SDL_HasIntersection(playerBody, wallBody) && isMovingLeft) {
+            blockedDirection = 3;
+        } else if (SDL_HasIntersection(playerBody, wallBody) && isMovingRight) {
+            blockedDirection = 4;
+        }
     }
 }
 

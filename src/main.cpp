@@ -24,7 +24,7 @@ int main() {
                 window->player->SetMove(0);
             }
         }
-        window->player->CheckCollision(window->wallLeft);
+        window->player->CheckWallsCollisions(window->walls);
         window->player->Move();
         window->RenderElements();
         timer->BalanceFps();

@@ -3,6 +3,7 @@
 #include <SDL.h>
 #include <stdio.h>
 #include <iostream>
+#include <vector>
 #include "Wall.h"
 
 class Player
@@ -12,7 +13,7 @@ class Player
         Uint8 r, b, g, a;
         SDL_Rect body;
         Player(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint8 _b, Uint8 _a);
-        void CheckCollision(Wall* wall);
+        void CheckWallsCollisions(std::vector<Wall*> walls);
         void SetMove(int moveIndex);
         void Move();
     private:
