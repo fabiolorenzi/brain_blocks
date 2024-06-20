@@ -10,18 +10,18 @@ Window::Window()
 
 Window::~Window()
 {
-    SDL_FreeSurface( gHelloWorld );
-	gHelloWorld = NULL;
-	SDL_DestroyWindow( gWindow );
+    SDL_FreeSurface(gStretched);
+	gStretched = NULL;
+	SDL_DestroyWindow(gWindow);
 	gWindow = NULL;
 	SDL_Quit();
 }
 
 int Window::Init()
 {
-    if( SDL_Init( SDL_INIT_VIDEO ) < 0 )
+    if (SDL_Init(SDL_INIT_VIDEO) < 0)
 	{
-		printf( "SDL could not initialize! SDL_Error: %s\n", SDL_GetError() );
+		printf("SDL could not initialize! SDL_Error: %s\n", SDL_GetError());
 		return -1;
 	}
 	else
@@ -45,14 +45,37 @@ int Window::Init()
 	return 0;
 }
 
-int Window::LoadMedia(std::string image)
+int Window::LoadMedia(std::string imagePath)
 {
-    gHelloWorld = SDL_LoadBMP(image.c_str());
-	if (gHelloWorld == NULL) {
-		printf( "Unable to load image %s! SDL Error: %s\n", image, SDL_GetError());
+    gStretched = LoadSurface(imagePath.c_str());
+	if (gStretched == NULL) {
+		printf( "Unable to load image %s! SDL Error: %s\n", imagePath, SDL_GetError());
 		return -1;
 	}
-	SDL_BlitSurface(gHelloWorld, NULL, gScreenSurface, NULL);
+	SDL_Rect stretchRect;
+	stretchRect.x = 0;
+	stretchRect.y = 0;
+	stretchRect.w = width;
+	stretchRect.h = height;
+	SDL_BlitScaled(gStretched, NULL, gScreenSurface, &stretchRect);
 	SDL_UpdateWindowSurface(gWindow);
     return 0;
+}
+
+SDL_Surface* Window::LoadSurface(std::string imagePath)
+{
+	SDL_Surface* optimizedSurface = NULL;
+	SDL_Surface* loadedSurface = SDL_LoadBMP(imagePath.c_str());
+	if (loadedSurface == NULL) {
+		printf("Unable to load image %s! SDL Error: %s\n", imagePath.c_str(), SDL_GetError());
+	} else {
+		optimizedSurface = SDL_ConvertSurface(loadedSurface, gScreenSurface->format, 0);
+		if (optimizedSurface == NULL) {
+			printf("Unable to optimize image %s! SDL Error: %s\n", imagePath.c_str(), SDL_GetError());
+		}
+
+		SDL_FreeSurface(loadedSurface);
+	}
+
+	return optimizedSurface;
 }
