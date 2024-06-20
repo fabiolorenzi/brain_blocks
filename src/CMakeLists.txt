@@ -7,6 +7,7 @@ target_sources(${PROJECT_NAME}
     PRIVATE
         main.cpp
         classes/Window.cpp
+        classes/Renderer.cpp
         functions/KeysManager.cpp
 )
 
