@@ -98,11 +98,12 @@ SDL_Surface* Window::LoadSurface(std::string imagePath)
 	return optimizedSurface;
 }
 
-void Window::RenderSquares()
+void Window::RenderElements()
 {
 	gRenderer->Reset();
 	gRenderer->Draw(40, height - 50, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
 
-	//Update screen
+	gRenderer->Draw(0, height - 10, width, 10, 0x8B, 0x45, 0x13, 0x00);
+
 	SDL_RenderPresent(gRenderer->renderer);
 }

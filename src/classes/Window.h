@@ -12,7 +12,7 @@ class Window
         ~Window();
         int LoadMedia(std::string imagePath);
         SDL_Texture* LoadTexture(std::string texturePath);
-        void RenderSquares();
+        void RenderElements();
     private:
         int width;
         int height;

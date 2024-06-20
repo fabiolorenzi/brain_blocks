@@ -18,7 +18,7 @@ int main() {
             }
         }
 
-        window->RenderSquares();
+        window->RenderElements();
     }
 
     delete window;
