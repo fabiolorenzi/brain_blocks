@@ -100,13 +100,8 @@ SDL_Surface* Window::LoadSurface(std::string imagePath)
 
 void Window::RenderSquares()
 {
-	SDL_SetRenderDrawColor(gRenderer->renderer, 0xFF, 0xFF, 0xFF, 0xFF);
-	SDL_RenderClear(gRenderer->renderer);
-
-	//Render red filled quad
-	SDL_Rect fillRect = {40, height - 50, 40, 40};
-	SDL_SetRenderDrawColor(gRenderer->renderer, 0xFF, 0x00, 0x00, 0xFF);		
-	SDL_RenderFillRect(gRenderer->renderer, &fillRect);
+	gRenderer->Reset();
+	gRenderer->Draw(40, height - 50, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
 
 	//Update screen
 	SDL_RenderPresent(gRenderer->renderer);
