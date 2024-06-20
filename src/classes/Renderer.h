@@ -5,7 +5,8 @@
 #include <stdio.h>
 #include "Player.h"
 
-class Renderer {
+class Renderer
+{
     public:
         SDL_Renderer* renderer;
         Renderer(SDL_Window* window);

@@ -4,7 +4,8 @@
 #include <stdio.h>
 #include <iostream>
 
-class Player {
+class Player
+{
     public:
         int x, y, width, height;
         Uint8 r, b, g, a;

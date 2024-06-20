@@ -1,6 +1,7 @@
 #define SDL_MAIN_HANDLED true
 
 #include <SDL.h>
+#include "classes/Timer.h"
 #include "classes/Window.h"
 #include "functions/KeysManager.h"
 
@@ -8,10 +9,11 @@ int main() {
     SDL_SetMainReady();
     bool isRunning = true;
     Window* window = new Window();
+    Timer* timer = new Timer();
     window->LoadMedia("assets/textures/texture.png");
-    int x {0};
 
     while (isRunning) {
+        timer->ResetStartLoop();
         SDL_Event e;
         while (SDL_PollEvent(&e) != 0) {
             if (e.type == SDL_QUIT) {
@@ -24,8 +26,10 @@ int main() {
         }
         window->player->Move();
         window->RenderElements();
+        timer->BalanceFps();
     }
 
+    delete timer;
     delete window;
 
     return 0;

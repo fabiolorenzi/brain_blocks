@@ -8,6 +8,7 @@ target_sources(${PROJECT_NAME}
         main.cpp
         classes/Player.cpp
         classes/Renderer.cpp
+        classes/Timer.cpp
         classes/Window.cpp
         functions/KeysManager.cpp
 )
