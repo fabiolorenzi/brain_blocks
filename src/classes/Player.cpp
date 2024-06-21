@@ -13,7 +13,6 @@ Player::Player(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint
     horiSpeed = 2;
     isMovingLeft = false;
     isMovingRight = false;
-    blockedDirection = 99;
     body = {x, y, width, height};
 }
 
@@ -23,9 +22,9 @@ void Player::CheckWallsCollisions(std::vector<Wall*> walls)
     for (Wall* wall : walls) {
         const SDL_Rect* wallBody = wall->GetBody();
         if (SDL_HasIntersection(playerBody, wallBody) && isMovingLeft) {
-            blockedDirection = 3;
+            x += 10;
         } else if (SDL_HasIntersection(playerBody, wallBody) && isMovingRight) {
-            blockedDirection = 4;
+            x -= 10;
         }
     }
 }
@@ -35,11 +34,9 @@ void Player::SetMove(int moveIndex)
     if (moveIndex == 3) {
         isMovingLeft = true;
         isMovingRight = false;
-        blockedDirection = 99;
     } else if (moveIndex == 4) {
         isMovingLeft = false;
         isMovingRight = true;
-        blockedDirection = 99;
     } else if (moveIndex == 0) {
         isMovingLeft = false;
         isMovingRight = false;
@@ -48,10 +45,10 @@ void Player::SetMove(int moveIndex)
 
 void Player::Move()
 {
-    if (isMovingLeft && blockedDirection != 3) {
+    if (isMovingLeft) {
         x -= horiSpeed;
         body.x = x;
-    } else if (isMovingRight && blockedDirection != 4) {
+    } else if (isMovingRight) {
         x += horiSpeed;
         body.x = x;
     }
