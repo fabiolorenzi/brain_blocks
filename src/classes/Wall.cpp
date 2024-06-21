@@ -1,6 +1,6 @@
 #include "Wall.h"
 
-Wall::Wall(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint8 _b, Uint8 _a)
+Wall::Wall(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint8 _b, Uint8 _a, bool _isFloor)
 {
     x = _x;
     y = _y;
@@ -10,6 +10,7 @@ Wall::Wall(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint8 _b
     g = _g;
     b = _b;
     a = _a;
+    isFloor = _isFloor;
     body = {x, y, width, height};
 }
 

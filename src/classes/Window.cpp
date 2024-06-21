@@ -45,10 +45,10 @@ int Window::Init()
 			return -1;
 		} else {
 			gScreenSurface = SDL_GetWindowSurface(gWindow);
-			walls.push_back(new Wall(0, height - 10, width, 10, 0x8B, 0x45, 0x13, 0x00));
-			walls.push_back(new Wall(0, 0, 10, height - 10, 0x80, 0x80, 0x80, 0x00));
-			walls.push_back(new Wall(width - 10, 0, 10, height - 10, 0x80, 0x80, 0x80, 0x00));
-			player = new Player(40, height / 2, 40, 40, 0xFF, 0x00, 0x00, 0xFF);
+			walls.push_back(new Wall(0, height - 10, width, 10, 0x8B, 0x45, 0x13, 0x00, true));
+			walls.push_back(new Wall(0, 0, 10, height - 10, 0x80, 0x80, 0x80, 0x00, false));
+			walls.push_back(new Wall(width - 10, 0, 10, height - 10, 0x80, 0x80, 0x80, 0x00, false));
+			player = new Player(40, height / 2, 40, 40, 0xFF, 0x00, 0x00, 0xFF, height);
 			gRenderer = new Renderer(gWindow);
 		}
 	}
