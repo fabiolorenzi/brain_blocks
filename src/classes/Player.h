@@ -19,4 +19,5 @@ class Player
     private:
         bool isMovingLeft, isMovingRight;
         int blockedDirection;
+        int horiSpeed;
 };

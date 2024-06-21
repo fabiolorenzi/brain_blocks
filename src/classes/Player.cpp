@@ -10,6 +10,7 @@ Player::Player(int _x, int _y, int _width, int _height, Uint8 _r, Uint8 _g, Uint
     g = _g;
     b = _b;
     a = _a;
+    horiSpeed = 2;
     isMovingLeft = false;
     isMovingRight = false;
     blockedDirection = 99;
@@ -48,10 +49,10 @@ void Player::SetMove(int moveIndex)
 void Player::Move()
 {
     if (isMovingLeft && blockedDirection != 3) {
-        x -= 1;
+        x -= horiSpeed;
         body.x = x;
     } else if (isMovingRight && blockedDirection != 4) {
-        x += 1;
+        x += horiSpeed;
         body.x = x;
     }
 }
